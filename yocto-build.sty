@@ -1,0 +1,26 @@
+sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python-is-python3 python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev python3-subunit mesa-common-dev zstd liblz4-tool file locales -y
+
+sudo apt install zstd lz4 -y
+
+sudo locale-gen en_US.UTF-8
+
+mkdir ~/bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+
+export PATH=~/bin:$PATH
+alias python='python3'
+alias pip='pip3'
+
+git config --global user.name "Jordan Pan"
+git config --global user.email "pan.jordan@gmail.com"
+git config --list
+
+mkdir imx-yocto-bsp
+cd imx-yocto-bsp
+repo init -u https://github.com/nxp-imx/imx-manifest -b imx-linux-mickledore -m imx-6.1.36-2.1.0.xml
+repo sync
+
+DISTRO=fsl-imx-wayland MACHINE=imx8mqevk  source imx-setup-release.sh -b build-imx8mqevk
+
+bitbake imx-image-core
