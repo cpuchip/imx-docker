@@ -7,17 +7,27 @@
 
 #
 
-mkdir -p ${YOCTO_DIR}
+if [ ! -d "$YOCTO_DIR" ]; then
+    echo "Yocto project folder not existing !!! Create it."
+    mkdir -p ${YOCTO_DIR}
+else
+    echo "Yocto folder ready !"
+fi
 cd ${YOCTO_DIR}
 
 # Init
 
-repo init \
-    -u ${REMOTE} \
-    -b ${BRANCH} \
-    -m ${MANIFEST}
+if [ ! -d .repo ]; then
+    echo "Start to setup repo"
+    repo init \
+        -u ${REMOTE} \
+        -b ${BRANCH} \
+        -m ${MANIFEST}
 
-repo sync -j`nproc`
+    repo sync -j`nproc`
+else
+    echo "Found existing repo"
+fi
 
 # source the yocto env
 
