@@ -23,5 +23,20 @@ REMOTE="https://github.com/nxp-imx/imx-manifest"
 BRANCH="imx-linux-mickledore"
 MANIFEST=${IMX_RELEASE}".xml"
 
-#OPTIONS="--runall=fetch"
-#OPTIONS="-c clean"
+OPTIONS="-k"
+
+#BitBake parameter      Description
+# --runall=fetch
+# -c fetch              # Fetches if the downloads state is not marked as done.
+# -c clean"
+# -c cleanall           # Cleans the entire component build directory. All the changes in the build directory are
+                        # lost. The rootfs and state of the component are also cleared. The component is also
+                        # removed from the download directory.
+# -c deploy             # Deploys an image or component to the rootfs.
+# -k                    # Continues building components even if a build break occurs.
+# -c compile -f         # It is not recommended that the source code under the temporary directory is changed
+                        # directly, but if it is, the Yocto Project might not rebuild it unless this option is used. Use
+                        # this option to force a recompile after the image is deployed.
+# -g"                   # Lists a dependency tree for an image or component.
+# -DDD"                 # Turns on debug 3 levels deep. Each D adds another level of debug.
+# -s, --show-versions"  # Shows the current and preferred versions of all recipes.
