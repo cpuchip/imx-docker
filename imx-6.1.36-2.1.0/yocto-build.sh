@@ -24,6 +24,6 @@ repo sync -j`nproc`
 EULA=1 MACHINE="${MACHINE}" DISTRO="${DISTRO}" source imx-setup-release.sh -b build_${DISTRO}
 
 # Build
-
-bitbake ${IMAGES} ${OPTIONS}
+echo -e "OPTIONS=\"${OPTIONS}\", ARGS=\"$*\""
+bitbake ${IMAGES} ${OPTIONS} $*
 

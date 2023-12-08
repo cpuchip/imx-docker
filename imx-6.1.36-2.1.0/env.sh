@@ -15,12 +15,13 @@ YOCTO_DIR="${DOCKER_WORKDIR}/${IMX_RELEASE}-build"
 
 MACHINE="imx8ulp-lpddr4-evk"
 DISTRO="fsl-imx-xwayland"
-IMAGES="imx-image-core"
-#IMAGES="imx-image-multimedia"
+#IMAGES="imx-image-core"
+IMAGES="imx-image-multimedia"
 #IMAGES="imx-image-full"
 
 REMOTE="https://github.com/nxp-imx/imx-manifest"
 BRANCH="imx-linux-mickledore"
 MANIFEST=${IMX_RELEASE}".xml"
 
-OPTIONS="--runall=fetch"
+#OPTIONS="--runall=fetch"
+#OPTIONS="-c clean"
