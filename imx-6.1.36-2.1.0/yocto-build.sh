@@ -34,6 +34,5 @@ fi
 EULA=1 MACHINE="${MACHINE}" DISTRO="${DISTRO}" source imx-setup-release.sh -b build_${DISTRO}
 
 # Build
-echo -e "OPTIONS=\"${OPTIONS}\", ARGS=\"$*\""
-bitbake ${IMAGES} ${OPTIONS} $*
-
+echo -e "\nbitbake ${IMAGES} $*\n"
+bitbake ${IMAGES} $*
