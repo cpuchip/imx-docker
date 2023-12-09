@@ -1,0 +1,26 @@
+20231209:
+    1. Build success on imx-image-core / imx-image-multimedia target configuration
+    2. When building imx-image-full, found bug in qtbase do_install stage
+       refer to https://community.nxp.com/t5/i-MX-Processors/building-the-full-image-imx93evk/td-p/1736785
+       issue resolved by add the command "chown -R root.root ${D}${libdir}" in section "do_install" in the
+       recipe qtbase_git.bb, located on the path: ../sources/meta-qt6/recipes-qt/qt6
+    3. Finally building imx-image-full success
+20231208:
+    1. Docker container with volume mount might crash and cause Mac-Pro system problem.
+    2. By trying install ubuntu 22.04 under virtual machine environment, machine performace is
+       greatly reduced. Also it has similiar crach issue as docker build when yocto build space
+       become big.
+    3. Install pure ubuntu 22.04 environment into Lenovo Legion Y7000 N/B. Partition 100GB for
+       Yocto build space.
+    4. During build process, it found yocto require much more space to build completely. Enlarge
+       partition to 300GB and swap space enlarge from 16GB to 45GB.
+20231207:
+    1. Study build by docker environment on macbook-pro.
+    2. Found leak performance on 2014 later MBP with 4 Processors.
+    3. Migrate to Mac-Pro for evaluation again.
+20231206: Project meeting in office. Spec. requirement includes:
+    1. DDR3/4 modify in uboot & linux kernel
+    2. Quick boot. Target to appropriate 2 sec.
+    3. Support UVC driver
+    4. Development target CPU is i.MX8-ULP based on Yocto build platform
+    5. Get imx8ulpevk board x1 and camera module board x1
