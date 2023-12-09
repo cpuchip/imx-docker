@@ -15,9 +15,9 @@ YOCTO_DIR="${DOCKER_WORKDIR}/${IMX_RELEASE}-build"
 
 MACHINE="imx8ulpevk"
 DISTRO="fsl-imx-xwayland"
-IMAGES="imx-image-core"
+#IMAGES="imx-image-core"
 #IMAGES="imx-image-multimedia"
-#IMAGES="imx-image-full"
+IMAGES="imx-image-full"
 
 REMOTE="https://github.com/nxp-imx/imx-manifest"
 BRANCH="imx-linux-mickledore"
