@@ -1,3 +1,9 @@
+20231212:
+    1. imx8ulpevk debug console is located on 3rd port
+    2. Ubuntu serial driver is default permission as root:dialout. And default user doesn't
+       list with it. So needs to manually add : "sudo useradd -a -G dialout user"
+    3. uuu test successfully to burn in imx-core-image and others images.
+    4. Found Putty and Moserial terminal could support serial terminal in Ubuntu
 20231209:
     1. Build success on imx-image-core / imx-image-multimedia target configuration
     2. When building imx-image-full, found bug in qtbase do_install stage
