@@ -1,0 +1,21 @@
+Development workstation installation
+1. Ubuntu 22.04 preinstalled with at least 16GB RAM (recommend 32GB above) and storage device 512GB at
+   least free space (recommend quicker SSD). CPU recommend Intel i7 or equivalent processor with higher
+   processing speed.
+2. Due to mightbe bug of Ubuntu, new created user does not join 'dialout' group, which would cause any
+   serial port has no permission to access. Execute 'sudo useradd -a -G dialout <username>', then check
+   by 'groups <username>' to confirm your username has listed up in dialout group.
+3. If docker would be used, follow up imx-docker instruction to create docker image for use. If not,
+   then please follow Dockerfile-Ubuntu-<your version> to setup require packages.
+
+Suntek EVB porting note (based on Yocto environment)
+1. Download imx-docker from github.
+2. Modify env.sh for 'DOCKER_WORKDIR' to your prefer location and 'MACHINE=<board name>'
+3. Once you can success setup either docker or native Ubuntu environment, do following modify / add to
+   fulfill target board config requirement.
+    3.1 copy sources/meta-freescale-3rdparty/conf/machine/include/imx8ulp-evk.inc sources/meta-freescale
+        -3rdparty/conf/machine/include
+    3.2 copy sources/meta-freescale/conf/machine/imx8ulp-lpddr4-evk.conf sources/meta-freescale-3rdparty
+        /conf/machine/imx8ulp-lpddr4-evk.conf and then renamme as '<board name>.conf
+4. Patch to sources/meta-qt6/recipes-qt/qt6/qtbase_git.bb. Append 'chown -R root.root ${D}${libdir}'
+   just below 'do_install:'

@@ -14,7 +14,7 @@ IMX_RELEASE="imx-6.1.36-2.1.0"
 YOCTO_DIR="${DOCKER_WORKDIR}/${IMX_RELEASE}-build"
 
 #MACHINE="imx8ulpevk"
-MACHINE="imx8ulp-vana"
+MACHINE="imx8ulp-suntek"
 DISTRO="fsl-imx-xwayland"
 #DISTRO="fsl-imx-fb"
 IMAGES="imx-image-core"    # An i.MX image with i.MX test applications to be used for
