@@ -5,7 +5,7 @@ I'm trying to take the i.MX93evk + k32w0 USB dongle and build the NXP Matter/Zig
 
 Since the version of the i.MX93evk I have is rev A silicon (pre-production) I am limited to using the 6.1.22-2.0.0 Linux image
 
-useful linx
+useful link
 -----------
 
 1. https://www.nxp.com/document/guide/getting-started-with-the-i-mx93-evk:GS-IMX93EVK
@@ -14,6 +14,7 @@ useful linx
 4. https://github.com/nxp-imx/meta-matter/blob/imx_matter_2023_q4/README.md
 5. https://www.nxp.com/docs/en/user-guide/GSG-IMX8MMINI-MATTER.pdf
 6. if using WSL2 : https://github.com/microsoft/WSL/issues/4373
+7. https://learn.microsoft.com/en-us/windows/wsl/disk-space
 
 Building
 ========
@@ -29,7 +30,7 @@ There are a few things to adjust
 WSL2 Note
 ---------
 
-If running on WSL2 you may need to double check you have enough storage space in your ext4.vhdx file for yocto builds.....
+If running on WSL2 you may need to double check you have enough storage space in your ext4.vhdx file for yocto builds..... see https://learn.microsoft.com/en-us/windows/wsl/disk-space
 
 check where your VHDX file with powershell
 `Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss`
