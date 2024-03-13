@@ -13,9 +13,9 @@ IMX_RELEASE="imx-6.1.22-2.0.0"
 
 YOCTO_DIR="${DOCKER_WORKDIR}/${IMX_RELEASE}-build"
 
-MACHINE="imx8mpevk"
+MACHINE="imx93evk-matter"
 DISTRO="fsl-imx-xwayland"
-IMAGES="imx-image-core"
+IMAGES="imx-image-multimedia"
 
 REMOTE="https://github.com/nxp-imx/imx-manifest"
 BRANCH="imx-linux-mickledore"
