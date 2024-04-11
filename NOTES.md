@@ -3,7 +3,10 @@ Notes and Goals
 
 I'm trying to take the i.MX93evk + k32w0 USB dongle and build the NXP Matter/Zigbee bridge application for it.
 
-Since the version of the i.MX93evk I have is rev A silicon (pre-production) I am limited to using the 6.1.22-2.0.0 Linux image
+~~Since the version of the i.MX93evk I have is rev A silicon (pre-production) I am limited to using the 6.1.22-2.0.0 Linux image
+
+1. I have since my last work updated my WSL drive size to 512GB (hopefully enough to build a full image on my computer)
+2. I have also received an i.MX93-evk Rev B silicon and can use the newer linux images like imx-6.1.55-2.2.0, though my co-workers still have Rev-A so I will try to keep both up to date
 
 useful link
 -----------
@@ -21,7 +24,7 @@ Building
 
 in the [base repo](https://github.com/nxp-imx/imx-docker) I found bugs trying to build on Windows 11 and WSL2, no python missing file so I created this fork to help me get those changes into the public. This branch feature/matter is my additions to get the matter build also working.
 
-After checking out this branch you'll need to setup your env.sh file. I linked [imx-6.1.22-2.0.0/env.sh](./imx-6.1.36-2.1.0/env.sh) it to the [env.sh](./env.sh) using `ln -sf imx-6.1.22-2.0.0/env.sh env.sh` command
+After checking out this branch you'll need to setup your env.sh file. I linked [imx-6.1.55-2.2.0/env.sh](./imx-6.1.55-2.2.0/env.sh) it to the [env.sh](./env.sh) using `ln -sf imx-6.1.55-2.2.0/env.sh env.sh` command
 
 There are a few things to adjust
 1. in the env.sh file you can set your build image you are targeting, since the matter implementation uses "imx-image-multimedia" I changed to that `IMAGES=` instead of *-core. I suspect there may be some trimming that can be done here since I don't need a gui on box. see https://github.com/nxp-imx/imx-manifest for more build IMAGES available.
@@ -40,8 +43,8 @@ Once set you can now build your docker image
 
 once built (took about 330s on my laptop) you can then run the full image build with that new docker container just to make sure things are working
 
-`./docker-run.sh imx-6.1.22-2.0.0/yocto-build.sh`
+`./docker-run.sh imx-6.1.55-2.2.0/yocto-build.sh`
 
 how, it'll place a yocto folder at `/opt/yocto/` however it'll have root privlages and then it'll not be able to populate the needed files and build. so you need to take ownership of the folder `sudo chown <user>:<group> /opt/yoctor -R` replace <user> and <group> with your own user and group
 
-then you can rerun `./docker-run.sh imx-6.1.22-2.0.0/yocto-build.sh` to finish the build. That took for the core image about 1.5 hours on my desktop and about 3 hours on my laptop.
+then you can rerun `./docker-run.sh imx-6.1.55-2.2.0/yocto-build.sh` to finish the build. That took for the core image about 1.5 hours on my desktop and about 3 hours on my laptop.
