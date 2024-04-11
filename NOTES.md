@@ -45,6 +45,17 @@ once built (took about 330s on my laptop) you can then run the full image build 
 
 `./docker-run.sh imx-6.1.55-2.2.0/yocto-build.sh`
 
-how, it'll place a yocto folder at `/opt/yocto/` however it'll have root privlages and then it'll not be able to populate the needed files and build. so you need to take ownership of the folder `sudo chown <user>:<group> /opt/yoctor -R` replace <user> and <group> with your own user and group
+now, it'll place a yocto folder at `/opt/yocto/` however it'll have root privileges and then it'll not be able to populate the needed files and build. so you need to take ownership of the folder `sudo chown <user>:<group> /opt/yoctor -R` replace <user> and <group> with your own user and group
 
 then you can rerun `./docker-run.sh imx-6.1.55-2.2.0/yocto-build.sh` to finish the build. That took for the core image about 1.5 hours on my desktop and about 3 hours on my laptop.
+
+we can then download the sdk to /opt/nxp/...
+
+run `./docker-run.sh` to drop into the docker shell
+
+Get into the right directory:
+`cd ${YOCTO_DIR}`
+load up the right environment to run bitbake:
+`EULA=1 MACHINE="${MACHINE}" DISTRO="${DISTRO}" source imx-setup-release.sh -b build_${DISTRO}`
+populate the SDK:
+`bitbake ${IMAGES} -c populate_sdk`
