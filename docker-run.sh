@@ -26,6 +26,15 @@
 
 # run the docker image
 docker run -it --rm \
+    -e EULA=1 \
+    -e MACHINE="${MACHINE}" \
+    -e DISTRO="${DISTRO}" \
+    -e IMAGES="${IMAGES}" \
+    -e REMOTE="${REMOTE}" \
+    -e BRANCH="${BRANCH}" \
+    -e MANIFEST="${MANIFEST}" \
+    -e YOCTO_DIR="${YOCTO_DIR}" \
+    -e IMX_RELEASE="${IMX_RELEASE}" \
     --volume ${HOME}:${HOME} \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
     --volume $(pwd)/${IMX_RELEASE}:${DOCKER_WORKDIR}/${IMX_RELEASE} \
