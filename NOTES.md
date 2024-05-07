@@ -39,15 +39,24 @@ check where your VHDX file with powershell
 `Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss`
 Once set you can now build your docker image
 
+Create Docker Image
+-------------------
+
 `./docker-build.sh Dockerfile-Ubuntu-22.04`
 
 once built (took about 330s on my laptop) you can then run the full image build with that new docker container just to make sure things are working
+
+Build
+-----
 
 `./docker-run.sh imx-6.1.55-2.2.0/yocto-build.sh`
 
 now, it'll place a yocto folder at `/opt/yocto/` however it'll have root privileges and then it'll not be able to populate the needed files and build. so you need to take ownership of the folder `sudo chown <user>:<group> /opt/yoctor -R` replace <user> and <group> with your own user and group
 
 then you can rerun `./docker-run.sh imx-6.1.55-2.2.0/yocto-build.sh` to finish the build. That took for the core image about 1.5 hours on my desktop and about 3 hours on my laptop.
+
+Directly run the docker container
+---------------------------------
 
 we can then download the sdk to /opt/nxp/...
 
