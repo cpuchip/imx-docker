@@ -9,7 +9,7 @@ DOCKER_WORKDIR="/opt/yocto"
 
 # Yocto
 
-IMX_RELEASE="imx-6.1.55-2.2.0_matter"
+IMX_RELEASE="imx-6.1.55-2.2.0"
 
 YOCTO_DIR="${DOCKER_WORKDIR}/${IMX_RELEASE}-build"
 
@@ -19,4 +19,4 @@ IMAGES="imx-image-multimedia"
 
 REMOTE="https://github.com/cpuchip/imx-manifest"
 BRANCH="imx-linux-mickledore-matter"
-MANIFEST=${IMX_RELEASE}".xml"
+MANIFEST=${IMX_RELEASE}"_matter.xml"
