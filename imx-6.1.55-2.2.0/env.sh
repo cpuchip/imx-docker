@@ -17,6 +17,6 @@ MACHINE="imx93evk"
 DISTRO="fsl-imx-xwayland"
 IMAGES="imx-image-multimedia"
 
-REMOTE="https://github.com/nxp-imx/imx-manifest"
+REMOTE="https://github.com/cpuchip/imx-manifest"
 BRANCH="imx-linux-mickledore"
 MANIFEST=${IMX_RELEASE}".xml"
