@@ -21,7 +21,7 @@ repo sync -j`nproc`
 
 # source the yocto env
 
-EULA=1 MACHINE="${MACHINE}" DISTRO="${DISTRO}" source imx-matter-setup.sh -b build_${DISTRO}
+EULA=1 MACHINE="${MACHINE}" DISTRO="${DISTRO}" source sources/meta-matter/tools/imx-matter-setup.sh -b build_${DISTRO}
 
 # Build
 
